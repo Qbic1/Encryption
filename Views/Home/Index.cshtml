@@ -1,0 +1,45 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Encryption</title>
+</head>
+<body>
+    <div ng-app="Homeapp" ng-controller="HomeController">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label>Message text</label>
+                        <input required type="text" ng-model="message.Text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="button" class="btn btn-primary" ng-click="encrypt()" value="{{btntext}}" />
+                    </div>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>Message Text</th>
+                <th>Message Time</th>
+            </tr>
+            <tr ng-repeat="m in messages" ng-class-even="'even'" ng-class-odd="'odd'">
+                <td>{{ m.Text }}</td>
+                <td>{{ m.DT | mydate | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+
+    <script src="~/Scripts/HomeControllerJS.js"></script>
+</body>
+</html>
